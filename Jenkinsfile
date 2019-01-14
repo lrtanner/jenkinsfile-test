@@ -1,19 +1,3 @@
-//node {
-//    stage('Build') {
-//        echo 'Building....'
-//    }
-//    stage('Test') {
-//        echo 'Testing....'
-//        echo bat (
-//            script: 'dir',
-//            returnStdout: true
-//        )
-//    }
-//    stage('Deploy') {
-//        echo 'Deploying....'
-//    }
-//}
-
 pipeline {
     agent any
 
@@ -39,6 +23,11 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: '**/*.jar', fingerprint: true
         }
     }
 }
