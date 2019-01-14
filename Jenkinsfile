@@ -11,6 +11,7 @@ pipeline {
                         returnStatus: true
                 )
                 sh 'ls'
+                stash includes: '**/*.jar', name: 'jars'
             }
         }
         stage('Test') {
@@ -26,6 +27,7 @@ pipeline {
     }
     post {
         always {
+            unstash 'jars'
             archiveArtifacts artifacts: '**/*.jar', fingerprint: true
         }
     }
