@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     stages {
+        agent { label "nodejs" }
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat (
-                    script: 'echo.bat'
+                sh (
+                    script: 'echo.sh'
                 )
                 echo bat (
                         script: 'dir',
