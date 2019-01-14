@@ -5,8 +5,8 @@ node {
     }
     stage('Test') {
         echo 'Testing....'
-        sh (
-            script: 'bat dir',
+        bat (
+            script: 'dir',
             returnStdout: true
         )
     }
