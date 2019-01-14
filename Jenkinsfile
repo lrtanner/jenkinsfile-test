@@ -1,7 +1,6 @@
 node {
     stage('Build') {
-        echo 'Building..'
+        echo 'Checking out repo...'
         checkout scm
-        sh './echo.sh'
     }
 }
