@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
             agent { label "nodejs" }
@@ -17,13 +17,11 @@ pipeline {
             }
         }
         stage('Test') {
-            agent any
             steps {
                 echo 'Testing..'
             }
         }
         stage('Deploy') {
-            agent any
             steps {
                 echo 'Deploying....'
             }
