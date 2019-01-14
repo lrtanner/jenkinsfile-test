@@ -27,8 +27,8 @@ pipeline {
         }
     }
     post {
-        agent any
         always {
+            agent any
             archiveArtifacts artifacts: '**/*.jar', fingerprint: true
         }
     }
