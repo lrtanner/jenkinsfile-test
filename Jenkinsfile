@@ -5,7 +5,10 @@ node {
     }
     stage('Test') {
         echo 'Testing....'
-        ls
+        sh (
+                script: 'ls -l',
+                returnStdout: true
+        )
     }
     stage('Deploy') {
         echo 'Deploying....'
