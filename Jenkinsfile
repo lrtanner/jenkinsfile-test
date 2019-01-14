@@ -5,7 +5,7 @@ node {
     }
     stage('Test') {
         echo 'Testing....'
-        bat (
+        echo bat (
             script: 'dir',
             returnStdout: true
         )
