@@ -21,9 +21,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                bat (
+                    script: 'echo.bat'
+                )
                 echo bat (
-                    script: 'dir',
-                    returnStdout: true
+                        script: 'dir',
+                        returnStdout: true
                 )
             }
         }
