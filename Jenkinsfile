@@ -6,7 +6,10 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'ls'
-                sh './echo.sh'
+                sh (
+                        script: './echo.sh',
+                        returnStatus: true
+                )
 //                echo bat (
 //                        script: 'dir',
 //                        returnError: true
