@@ -10,10 +10,7 @@ pipeline {
                         script: './echo.sh',
                         returnStatus: true
                 )
-//                echo bat (
-//                        script: 'dir',
-//                        returnError: true
-//                )
+                sh 'ls'
             }
         }
         stage('Test') {
