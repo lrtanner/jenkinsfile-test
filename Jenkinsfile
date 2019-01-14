@@ -5,13 +5,12 @@ pipeline {
             agent { label "nodejs" }
             steps {
                 echo 'Building..'
-                sh (
-                    script: 'echo.sh'
-                )
-                echo bat (
-                        script: 'dir',
-                        returnStdout: true
-                )
+                sh 'ls'
+                sh './echo.sh'
+//                echo bat (
+//                        script: 'dir',
+//                        returnError: true
+//                )
             }
         }
         stage('Test') {
@@ -28,6 +27,7 @@ pipeline {
         }
     }
     post {
+        agent any
         always {
             archiveArtifacts artifacts: '**/*.jar', fingerprint: true
         }
